@@ -18,6 +18,12 @@ export default {
         options: ['full', 'large', 'small', 'default'],
       },
     },
+    disabled: {
+      control: {
+        type: 'boolean',
+        defaultValue: 'false',
+      },
+    },
   },
 };
 
