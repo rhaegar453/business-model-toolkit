@@ -23,6 +23,7 @@
   },
   "peerDependencies": {
     "react": ">=16",
+    "react-dom": "^17.0.2",
     "styled-components": "^5.3.5"
   },
   "husky": {
@@ -71,7 +72,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react-dom": "*",
     "react-is": "^17.0.2",
     "size-limit": "^7.0.8",
     "tsdx": "^0.14.1",
