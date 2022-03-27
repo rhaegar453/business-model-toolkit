@@ -1,8 +1,9 @@
-const colors:Record<string, string> = {
+const colors = {
   bg: '#041C32',
   primary: '#51C4D3',
   secondary: '#126E82',
   text_primary: '#D8E3E7',
+  danger: '#EF617C',
 };
 
 export default colors;
