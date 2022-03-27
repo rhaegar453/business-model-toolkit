@@ -1,35 +1,37 @@
 import { HTMLAttributes, ReactNode } from 'react';
 import styled from 'styled-components';
+import colors from '../../utils/theme';
 
-interface TextProps extends HTMLAttributes<HTMLParagraphElement>{
-    children?:ReactNode
-    size:'small'|'default'|'medium'|'large'|'extralarge'|'special'
-    bold:boolean
+export interface TextProps extends HTMLAttributes<HTMLParagraphElement> {
+  children?: ReactNode;
+  size?: 'small' | 'default' | 'medium' | 'large' | 'extralarge' | 'special';
+  bold?: boolean;
 }
 
-const getFontStyles = ({ size }:TextProps) => {
+const getFontStyles = ({ size = 'default' }: TextProps) => {
   switch (size) {
     case 'small':
-      return '10px';
+      return '12px';
     case 'medium':
-      return '16px';
-    case 'large':
       return '20px';
+    case 'large':
+      return '28px';
     case 'extralarge':
-      return '26px';
-    case 'special':
       return '32px';
+    case 'special':
+      return '40px';
     default:
       return '14px';
   }
 };
 
-const getFontWeight = ({ bold }:TextProps) => (bold ? 'bold' : '');
+const getFontWeight = ({ bold = false }: TextProps) => (bold ? 'bold' : '');
 
 const Text = styled.p`
-margin:0px;
-font-size: ${getFontStyles};
-font-weight: ${getFontWeight};
+  margin: 0px;
+  font-size: ${getFontStyles};
+  font-weight: ${getFontWeight};
+  color: ${colors.text_primary};
 `;
 
 export default Text;

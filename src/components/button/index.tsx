@@ -65,10 +65,10 @@ const Button = styled.button`
       opacity: 0.7;
   }
   &:focus{
-      outline: 2px solid red;
+      outline: 1px solid #e8e8e8;
   }
   &:active{
-      outline: 2px solid red;
+      outline: 1px solid #e8e8e8;
   }
 `;
 
