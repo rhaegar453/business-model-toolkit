@@ -7,7 +7,7 @@ export default {
 };
 
 export const withDefault = (args:any) => (
-  <Field {...args}>
+  <Field type="error" {...args}>
     <Field.Input placeholder="Hello World" />
     <Field.Message>Please enter the name</Field.Message>
   </Field>

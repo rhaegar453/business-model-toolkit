@@ -13,7 +13,6 @@ export interface FieldProps extends HTMLAttributes<HTMLInputElement>{
 }
 
 export interface FieldContextType{
-    message?:string
     type?:MessageType
     setMessage?:(message:string)=>void
 }
@@ -23,7 +22,7 @@ export const FieldContext = React.createContext<FieldContextType>({});
 const Field = ({ type, message, children }:FieldProps) => {
   const [fieldMessage, setMessage] = useState(message);
   return (
-    <FieldContext.Provider value={{ message: fieldMessage, type, setMessage }}>
+    <FieldContext.Provider value={{ type, setMessage }}>
       {children}
     </FieldContext.Provider>
   );
