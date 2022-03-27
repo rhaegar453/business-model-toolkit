@@ -15,7 +15,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['full', 'large', 'small', 'default'],
+        options: ['full', 'large', 'small', 'default', 'wide'],
       },
     },
     disabled: {
