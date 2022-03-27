@@ -5,6 +5,20 @@ import useDevice from '../src/utils/hooks/useDevice';
 export default {
   title: 'Atoms/Button',
   component: Button,
+  argTypes: {
+    variant: {
+      control: {
+        type: 'select',
+        options: ['primary', 'secondary', 'default', 'danger'],
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: ['full', 'large', 'small', 'default'],
+      },
+    },
+  },
 };
 
 export function withDefault(props:any) {

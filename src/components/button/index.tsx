@@ -36,6 +36,14 @@ background-color: ${({ variant }:ButtonProps) => {
         return '8px 12px';
     }
   }};
+  width:${({ size }) => {
+    switch (size) {
+      case 'full':
+        return '-webkit-fill-available';
+      default:
+        return '';
+    }
+  }}
 `;
 
 export default Button;
