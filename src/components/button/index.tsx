@@ -2,8 +2,10 @@ import { HTMLAttributes, ReactNode } from 'react';
 import styled from 'styled-components';
 import colors from '../../utils/theme';
 
+export type ButtonTypes='primary' | 'secondary' | 'default' | 'danger'|'ternary';
+
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'default' | 'danger';
+  variant?: ButtonTypes;
   children?: ReactNode;
   size?: 'default' | 'small' | 'large' | 'full' | 'wide';
 }
@@ -16,6 +18,8 @@ const getBackgroundStyled = ({ variant }: ButtonProps) => {
       return colors.secondary;
     case 'danger':
       return colors.danger;
+    case 'ternary':
+      return colors.ternary;
     default:
       return colors.primary;
   }
