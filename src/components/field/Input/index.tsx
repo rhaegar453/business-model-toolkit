@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FieldContext, MessageType } from '..';
 import colors from '../../../utils/theme';
 
-interface InputProps extends HTMLAttributes<HTMLInputElement>{
+export interface InputProps extends HTMLAttributes<HTMLInputElement>{
     variant?:MessageType
 }
 
@@ -19,9 +19,10 @@ const getBorderStyles = ({ variant }:InputProps) => {
 };
 
 const FieldBase:React.FC<InputProps> = styled.input`
-padding: 6px 12px;
+padding: 12px 12px;
 font-size: 15px;
 border: ${getBorderStyles};
+border-radius: 5px;
 `;
 
 const Input:React.FC<InputProps> = (props) => {

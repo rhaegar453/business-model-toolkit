@@ -42,6 +42,7 @@ module.exports = {
     'react/require-default-props':[0],
     'max-len':[0],
     'react/jsx-no-constructed-context-values':[0],
-    'no-unused-vars':[1]
+    'no-unused-vars':[1],
+    'react/no-unused-prop-types':[0]
   },
 };

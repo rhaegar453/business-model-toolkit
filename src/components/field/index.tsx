@@ -1,11 +1,15 @@
 import React, { HTMLAttributes, ReactNode, useState } from 'react';
+import Input from './Input';
+import Message from './Message';
 
 export type MessageType='error'|'success'|'info'
 
-interface FieldProps extends HTMLAttributes<HTMLInputElement>{
+export interface FieldProps extends HTMLAttributes<HTMLInputElement>{
     children?:ReactNode
-    type:MessageType
-    message:string
+    type?:MessageType
+    message?:string
+    Message?:ReactNode
+    Input?:ReactNode
 }
 
 export interface FieldContextType{
@@ -16,7 +20,7 @@ export interface FieldContextType{
 
 export const FieldContext = React.createContext<FieldContextType>({});
 
-const Field:React.FC<FieldProps> = ({ type, message, children }) => {
+const Field = ({ type, message, children }:FieldProps) => {
   const [fieldMessage, setMessage] = useState(message);
   return (
     <FieldContext.Provider value={{ message: fieldMessage, type, setMessage }}>
@@ -24,5 +28,8 @@ const Field:React.FC<FieldProps> = ({ type, message, children }) => {
     </FieldContext.Provider>
   );
 };
+
+Field.Message = Message;
+Field.Input = Input;
 
 export default Field;
