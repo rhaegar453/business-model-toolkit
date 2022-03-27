@@ -39,6 +39,9 @@ module.exports = {
     'import/extensions':[0],
     'react/function-component-definition':[0],
     'react/button-has-type':[0],
-    'react/require-default-props':[0]
+    'react/require-default-props':[0],
+    'max-len':[0],
+    'react/jsx-no-constructed-context-values':[0],
+    'no-unused-vars':[1]
   },
 };
