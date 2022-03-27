@@ -25,7 +25,7 @@ const getPadingStyles = ({ size }: ButtonProps) => {
     case 'full':
       return '12px 16px';
     case 'large':
-      return '12px 18px';
+      return '12px 22px';
     case 'small':
       return '6px 12px';
     default:
