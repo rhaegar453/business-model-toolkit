@@ -8,27 +8,31 @@ const devices = {
   xdesktop: 1200,
 };
 
-const createMediaQuery = (n:number) => `(min-width:${n})`;
-
 export type DeviceTypes= keyof typeof devices;
 
-const useDevice = () => {
-  const isMobile = useMediaQuery(createMediaQuery(devices.mobile));
-  const isTablet = useMediaQuery(createMediaQuery(devices.tablet));
-  const isDesktop = useMediaQuery(createMediaQuery(devices.desktop));
-  const isHighDisplay = useMediaQuery(createMediaQuery(devices.xdesktop));
+function useDevice({
+  mobileMediaQuery = '(max-width: 599px)',
+  tabletMediaQuery = '(max-width: 959px)',
+  desktopMediaQuery = '(max-width: 1320px)',
+  highResMediaQuery = '(min-width: 1321px)',
+} = {}) {
+  const isMobile = useMediaQuery(mobileMediaQuery);
+  const isTablet = useMediaQuery(tabletMediaQuery);
+  const isDesktop = useMediaQuery(desktopMediaQuery); // Use this for edge cases
 
+  const isHighRes = useMediaQuery(highResMediaQuery);
   const getDevice = useCallback(() => {
-    if (isMobile) {
-      return 'mobile';
-    }
-    if (isTablet) {
-      return 'tablet';
-    }
-    return isDesktop;
-  }, [isMobile, isTablet, isDesktop]);
-
-  return { getDevice, isHighDisplay };
-};
+    if (isMobile) return 'mobile';
+    if (isTablet) return 'tablet';
+    return 'desktop';
+  }, [isMobile, isTablet]);
+  return {
+    isMobile,
+    isTablet,
+    isDesktop,
+    isHighRes,
+    getDevice,
+  };
+}
 
 export default useDevice;
