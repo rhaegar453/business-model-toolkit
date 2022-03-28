@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom';
 const createWrapper = (wrapperId:string) => {
   const wrapperElement = document.createElement('div');
   wrapperElement.setAttribute('id', wrapperId);
+  wrapperElement.setAttribute('style', 'background-color:#141313bd;display:flex;justify-content:center;align-items:center;position:absolute;left:0;top:0;width:100%;height:100%;');
   document.body.appendChild(wrapperElement);
   return wrapperElement;
 };

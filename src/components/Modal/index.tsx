@@ -1,7 +1,8 @@
 import React, {
   ReactNode,
 } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { OpacityWithScale } from '../Animations/opacity';
 import Button from '../button';
 import Portal from '../Portal';
 import Text from '../text';
@@ -22,11 +23,13 @@ export interface ModalProps{
 
 const Modal = ({ isOpen, children, handleClose }:ModalProps) => (!isOpen ? null : (
   <Portal elementId="react-portal-modal-container">
-    <ModalBase>
-      <Button size="small" onClick={handleClose}>Close</Button>
-      <Text size="large" style={{ color: '#333333' }}>Hello World this Shivaraj</Text>
-      {children}
-    </ModalBase>
+    <OpacityWithScale>
+      <ModalBase>
+        <Button size="small" onClick={handleClose}>Close</Button>
+        <Text size="large" style={{ color: '#333333' }}>Hello World this Shivaraj</Text>
+        {children}
+      </ModalBase>
+    </OpacityWithScale>
   </Portal>
 ));
 
