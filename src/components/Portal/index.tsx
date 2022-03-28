@@ -1,16 +1,23 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { ReactNode, useLayoutEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-const createWrapper = (wrapperId) => {
+const createWrapper = (wrapperId:string) => {
   const wrapperElement = document.createElement('div');
   wrapperElement.setAttribute('id', wrapperId);
   document.body.appendChild(wrapperElement);
   return wrapperElement;
 };
 
-const Portal = ({ children, elementId = 'react-portal-element' }) => {
-  const [wrapperElement, setWrapperElement] = useState(null);
+interface PortalProps{
+  children?:ReactNode
+  elementId?:string
+}
+
+const Portal = ({ children, elementId = 'react-portal-element' }:PortalProps) => {
+  const [isLoaded, setLoaded] = useState(false);
+  const [wrapperElement, setWrapperElement] = useState<any>(null);
   useLayoutEffect(() => {
+    setLoaded(true);
     let element = document.getElementById(elementId);
     let systemCreated = false;
     if (!element) {
@@ -19,13 +26,12 @@ const Portal = ({ children, elementId = 'react-portal-element' }) => {
     }
     setWrapperElement(element);
     return () => {
-      if (systemCreated && element.parentNode) {
+      if (systemCreated && element && element.parentNode) {
         element.parentNode.removeChild(element);
       }
     };
   }, [elementId]);
-  const element = document.getElementById(elementId);
-  return createPortal(children, wrapperElement);
+  return isLoaded ? createPortal(children, wrapperElement) : null;
 };
 
 export default Portal;

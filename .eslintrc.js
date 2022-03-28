@@ -43,6 +43,7 @@ module.exports = {
     'max-len':[0],
     'react/jsx-no-constructed-context-values':[0],
     'no-unused-vars':[1],
-    'react/no-unused-prop-types':[0]
+    'react/no-unused-prop-types':[0],
+    'no-bitwise':[0]
   },
 };
