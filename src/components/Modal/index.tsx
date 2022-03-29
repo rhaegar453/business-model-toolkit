@@ -1,5 +1,6 @@
 import React, {
-  ReactNode,
+  createRef,
+  ReactNode, useEffect, useRef,
 } from 'react';
 import styled, { keyframes } from 'styled-components';
 import colors from '../../utils/theme';
@@ -24,19 +25,28 @@ export interface ModalProps{
     handleClose:()=>void
 }
 
-const Modal = ({ isOpen, children, handleClose }:ModalProps) => (!isOpen ? null : (
-  <Portal elementId="react-portal-modal-container">
-    <OpacityWithScale style={{ display: 'flex', justifyContent: 'center', width: '80%' }}>
-      <ModalBase>
-        <Button size="small" onClick={handleClose}>Close</Button>
-        <Text size="large">Hello World this Shivaraj</Text>
-        <Field>
-          <Field.Input placeholder="Please enter your name" />
-        </Field>
-        {children}
-      </ModalBase>
-    </OpacityWithScale>
-  </Portal>
-));
+const Modal = ({ isOpen, children, handleClose }:ModalProps) => {
+  const modalRef = createRef<HTMLDivElement>();
+
+  const handleClickAway = () => {
+    console.log('Cliced Away from the div', handleClickAway);
+    handleClose();
+  };
+
+  return (!isOpen ? null : (
+    <Portal elementId="react-portal-modal-container" handleClickAway={handleClickAway}>
+      <OpacityWithScale style={{ display: 'flex', justifyContent: 'center', width: '80%' }} ref={modalRef}>
+        <ModalBase>
+          <Button size="small" onClick={handleClose}>Close</Button>
+          <Text size="large">Hello World this Shivaraj</Text>
+          <Field>
+            <Field.Input placeholder="Please enter your name" />
+          </Field>
+          {children}
+        </ModalBase>
+      </OpacityWithScale>
+    </Portal>
+  ));
+};
 
 export default Modal;

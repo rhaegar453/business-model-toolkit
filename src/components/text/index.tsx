@@ -28,6 +28,7 @@ const getFontStyles = ({ size = 'default' }: TextProps) => {
 const getFontWeight = ({ bold = false }: TextProps) => (bold ? 'bold' : '');
 
 const Text = styled.p`
+  cursor: default;
   margin: 0px;
   font-size: ${getFontStyles};
   font-weight: ${getFontWeight};
