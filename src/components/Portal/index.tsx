@@ -1,5 +1,5 @@
 import {
-  ReactNode, useLayoutEffect, useRef, useState,
+  ReactNode, useLayoutEffect, useState,
 } from 'react';
 import { createPortal } from 'react-dom';
 

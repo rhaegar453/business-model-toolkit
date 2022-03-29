@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import styled from 'styled-components';
 import colors from '../../utils/theme';
 import { ButtonTypes } from '../button';

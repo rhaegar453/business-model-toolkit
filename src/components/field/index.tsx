@@ -21,6 +21,7 @@ export const FieldContext = React.createContext<FieldContextType>({});
 
 const Field = ({ type, message, children }:FieldProps) => {
   const [fieldMessage, setMessage] = useState(message);
+  console.log(fieldMessage);
   return (
     <FieldContext.Provider value={{ type, setMessage }}>
       {children}
