@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from '.';
 import Button from '../button';
+import Text from '../text';
 
 export default {
   title: 'Atoms/Modal',
@@ -12,7 +13,9 @@ export const withDefault = (args:any) => {
   return (
     <div>
       <Button onClick={() => setModalOpen(true)}>Hello World</Button>
-      <Modal {...args} isOpen={modalOpen} handleClose={() => setModalOpen(false)} />
+      <Modal {...args} isOpen={modalOpen} handleClose={() => setModalOpen(false)}>
+        <Text size="large">Hello World this is Shivaraj Bakale</Text>
+      </Modal>
     </div>
   );
 };

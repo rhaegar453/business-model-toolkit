@@ -2,7 +2,8 @@ import React, {
   createRef,
   ReactNode,
 } from 'react';
-import styled from 'styled-components';
+import styled, { CSSProperties } from 'styled-components';
+import useDevice from '../../utils/hooks/useDevice';
 import colors from '../../utils/theme';
 import { OpacityWithScale } from '../Animations/opacity';
 import Portal from '../Portal';
@@ -13,16 +14,24 @@ border-radius: 15px;
 margin: 5px;
 background-color: ${colors.ternary};
 min-height: 300px;
-min-width: 60%;
+margin-bottom: 200px;
+min-width: ${() => {
+    const { getDevice } = useDevice();
+    const device = getDevice();
+    return device === 'mobile' ? '100%' : '60%';
+  }};
 `;
 
 export interface ModalProps{
     isOpen:boolean;
     children:ReactNode
-    handleClose:()=>void
+    handleClose:()=>void,
+    style:CSSProperties
 }
 
-const Modal = ({ isOpen, children, handleClose }:ModalProps) => {
+const Modal = ({
+  isOpen, children, handleClose, style,
+}:ModalProps) => {
   const modalRef = createRef<HTMLDivElement>();
 
   const handleClickAway = () => {
@@ -32,7 +41,7 @@ const Modal = ({ isOpen, children, handleClose }:ModalProps) => {
   return (!isOpen ? null : (
     <Portal elementId="react-portal-modal-container" handleClickAway={handleClickAway}>
       <OpacityWithScale style={{ display: 'flex', justifyContent: 'center', width: '80%' }} ref={modalRef}>
-        <ModalBase>
+        <ModalBase style={style}>
           {children}
         </ModalBase>
       </OpacityWithScale>
