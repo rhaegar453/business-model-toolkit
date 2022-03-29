@@ -29,7 +29,6 @@ const Modal = ({ isOpen, children, handleClose }:ModalProps) => {
   const modalRef = createRef<HTMLDivElement>();
 
   const handleClickAway = () => {
-    console.log('Cliced Away from the div', handleClickAway);
     handleClose();
   };
 
