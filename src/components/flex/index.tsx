@@ -1,23 +1,20 @@
 import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 
-interface FlexProps extends HTMLAttributes<HTMLDivElement> {
-  type: 'justify-center' | 'align-center' | 'reverse' | 'start' | 'center'|'space-around'|'space-between';
+export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
+  type?: 'spaceAround' | 'center' | 'justifyCenter' | 'spaceBetween' ;
 }
 
 const getFlexStyles = ({ type }:FlexProps) => {
   switch (type) {
-    case 'justify-center':
-    case 'space-around':
-      return 'space-around';
-    case 'space-between':
-      return 'space-between';
-    case 'align-center':
+    case 'justifyCenter':
       return 'center';
-    case 'reverse':
-      return 'row-reverse';
-    case 'start':
-      return 'flex-start';
+    case 'spaceAround':
+      return 'space-around';
+    case 'spaceBetween':
+      return 'space-between';
+    case 'center':
+      return 'center';
     default:
       return 'flex-start';
   }
@@ -25,7 +22,7 @@ const getFlexStyles = ({ type }:FlexProps) => {
 
 const getAlignStyles = ({ type }:FlexProps) => {
   switch (type) {
-    case 'align-center':
+    case 'center':
       return 'center';
     default:
       return '';
