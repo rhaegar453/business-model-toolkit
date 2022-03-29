@@ -1,14 +1,11 @@
 import React, {
   createRef,
-  ReactNode, useEffect, useRef,
+  ReactNode,
 } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import colors from '../../utils/theme';
 import { OpacityWithScale } from '../Animations/opacity';
-import Button from '../button';
-import Field from '../field';
 import Portal from '../Portal';
-import Text from '../text';
 
 const ModalBase = styled.div`
 padding: 20px;
@@ -36,11 +33,6 @@ const Modal = ({ isOpen, children, handleClose }:ModalProps) => {
     <Portal elementId="react-portal-modal-container" handleClickAway={handleClickAway}>
       <OpacityWithScale style={{ display: 'flex', justifyContent: 'center', width: '80%' }} ref={modalRef}>
         <ModalBase>
-          <Button size="small" onClick={handleClose}>Close</Button>
-          <Text size="large">Hello World this Shivaraj</Text>
-          <Field>
-            <Field.Input placeholder="Please enter your name" />
-          </Field>
           {children}
         </ModalBase>
       </OpacityWithScale>
