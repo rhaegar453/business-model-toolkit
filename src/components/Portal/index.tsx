@@ -3,11 +3,18 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 
-const createWrapper = (wrapperId:string, handleClick:(clickedAway:boolean)=>void) => {
+const createWrapper = (wrapperId:string, handleClick:(clickedAway:boolean)=>void, isFullSize:boolean, parentId?:string) => {
   const wrapperElement = document.createElement('div');
   wrapperElement.setAttribute('id', wrapperId);
-  wrapperElement.setAttribute('style', 'background-color:#141313bd;display:flex;justify-content:center;align-items:center;position:absolute;left:0;top:0;width:100%;height:100%;');
-  document.body.appendChild(wrapperElement);
+  if (isFullSize) {
+    wrapperElement.setAttribute('style', 'background-color:#141313bd;display:flex;justify-content:center;align-items:center;position:absolute;left:0;top:0;width:100%;height:100%;');
+  }
+  if (!parentId) {
+    document.body.appendChild(wrapperElement);
+  } else {
+    const element = document.getElementById(parentId);
+    element?.appendChild(wrapperElement);
+  }
   wrapperElement.onclick = (e) => {
     handleClick(e.target === wrapperElement);
     e.stopPropagation();
@@ -18,10 +25,15 @@ const createWrapper = (wrapperId:string, handleClick:(clickedAway:boolean)=>void
 interface PortalProps{
   children?:ReactNode
   elementId?:string
+  fullSize?:boolean
   handleClickAway?:()=>void
+  parentId?:string
 }
 
-const Portal = ({ children, elementId = 'react-portal-element', handleClickAway = () => {} }:PortalProps) => {
+const Portal = ({
+  children, elementId = 'react-portal-element', handleClickAway = () => {}, fullSize = false,
+  parentId,
+}:PortalProps) => {
   const [isLoaded, setLoaded] = useState(false);
   const [wrapperElement, setWrapperElement] = useState<any>(null);
 
@@ -36,7 +48,7 @@ const Portal = ({ children, elementId = 'react-portal-element', handleClickAway 
     let systemCreated = false;
     if (!element) {
       systemCreated = true;
-      element = createWrapper(elementId, handleClickEvent);
+      element = createWrapper(elementId, handleClickEvent, fullSize, parentId);
     }
     setWrapperElement(element);
     return () => {

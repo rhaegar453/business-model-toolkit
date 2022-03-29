@@ -37,7 +37,7 @@ const Modal = ({
   };
 
   return (!isOpen ? null : (
-    <Portal elementId="react-portal-modal-container" handleClickAway={handleClickAway}>
+    <Portal elementId="react-portal-modal-container" fullSize handleClickAway={handleClickAway}>
       <OpacityWithScale>
         <ModalBase style={style}>
           {children}
