@@ -32,15 +32,13 @@ export interface ModalProps{
 const Modal = ({
   isOpen, children, handleClose, style,
 }:ModalProps) => {
-  const modalRef = createRef<HTMLDivElement>();
-
   const handleClickAway = () => {
     handleClose();
   };
 
   return (!isOpen ? null : (
     <Portal elementId="react-portal-modal-container" handleClickAway={handleClickAway}>
-      <OpacityWithScale style={{ display: 'flex', justifyContent: 'center', width: '80%' }} ref={modalRef}>
+      <OpacityWithScale>
         <ModalBase style={style}>
           {children}
         </ModalBase>
