@@ -28,6 +28,15 @@ const opacityAndScale = keyframes`
     }
 `;
 
+export const increaseHeightAnimation = keyframes`
+    from {
+        height: auto;
+    }
+    to{
+        height: 100px;
+    }
+`;
+
 export const OpacityWithScale = styled.div`
     animation: ${opacityAndScale} 0.5s cubic-bezier(0.78,-0.1, 0.35, 1.15);
 `;
