@@ -8,17 +8,20 @@ const createWrapper = (wrapperId:string, handleClick:(clickedAway:boolean)=>void
   wrapperElement.setAttribute('id', wrapperId);
   if (isFullSize) {
     wrapperElement.setAttribute('style', 'background-color:#141313bd;display:flex;justify-content:center;align-items:center;position:absolute;left:0;top:0;width:100%;height:100%;');
-  }
-  if (!parentId) {
-    document.body.appendChild(wrapperElement);
+    wrapperElement.onclick = (e) => {
+      handleClick(e.target === wrapperElement);
+      e.stopPropagation();
+    };
   } else {
-    const element = document.getElementById(parentId);
-    element?.appendChild(wrapperElement);
+    document.body.onclick = function (e) {
+      const parent = document.getElementById(parentId || '');
+      if (e.target !== parent) {
+        handleClick(true);
+        e.stopPropagation();
+      }
+    };
   }
-  wrapperElement.onclick = (e) => {
-    handleClick(e.target === wrapperElement);
-    e.stopPropagation();
-  };
+  document.body.appendChild(wrapperElement);
   return wrapperElement;
 };
 
