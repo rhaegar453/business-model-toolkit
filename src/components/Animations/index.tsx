@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const opacity = keyframes`
     from{
@@ -28,7 +28,7 @@ const opacityAndScale = keyframes`
     }
 `;
 
-export const increaseHeightAnimation = keyframes`
+const increaseHeightAnimation = keyframes`
     from {
         height: auto;
     }
@@ -37,16 +37,25 @@ export const increaseHeightAnimation = keyframes`
     }
 `;
 
-export const OpacityWithScale = styled.div`
+const OpacityWithScale = styled.div`
     animation: ${opacityAndScale} 0.5s cubic-bezier(0.78,-0.1, 0.35, 1.15);
 `;
 
-export const Opacity = styled.div`
+const Opacity = styled.div`
 display  : inline-block;
 animation: ${opacity} 1s linear ;
 `;
 
-export const Rotate = styled.div`
+const Rotate = styled.div`
     display: inline-block;
     animation: ${rotate} 1s linear infinite;
 `;
+
+export default {
+  Rotate,
+  Opacity,
+  OpacityWithScale,
+  increaseHeightAnimation,
+  opacityAndScale,
+  opacity,
+};

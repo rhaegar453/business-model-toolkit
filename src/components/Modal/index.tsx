@@ -1,11 +1,10 @@
 import React, {
-  createRef,
   ReactNode,
 } from 'react';
 import styled, { CSSProperties } from 'styled-components';
 import useDevice from '../../utils/hooks/useDevice';
 import colors from '../../utils/theme';
-import { OpacityWithScale } from '../Animations/opacity';
+import Animations from '../Animations';
 import Portal from '../Portal';
 
 const ModalBase = styled.div`
@@ -38,11 +37,11 @@ const Modal = ({
 
   return (!isOpen ? null : (
     <Portal elementId="react-portal-modal-container" fullSize handleClickAway={handleClickAway}>
-      <OpacityWithScale>
+      <Animations.OpacityWithScale>
         <ModalBase style={style}>
           {children}
         </ModalBase>
-      </OpacityWithScale>
+      </Animations.OpacityWithScale>
     </Portal>
   ));
 };

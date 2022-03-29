@@ -1,11 +1,9 @@
-import Button from './components/button';
-import Field from './components/field';
-import Chip from './components/chip';
-import Text from './components/text';
-
-export {
-  Button,
-  Field,
-  Chip,
-  Text,
-};
+export { default as Button } from './components/button';
+export { default as Field } from './components/field';
+export { default as Modal } from './components/Modal';
+export { default as Portal } from './components/Portal';
+export { default as Chip } from './components/chip';
+export { default as ProjectItem } from './components/projectItem';
+export { default as Text } from './components/text';
+export { default as Accordian } from './components/accordian';
+export { default as Animations } from './components/Animations';
