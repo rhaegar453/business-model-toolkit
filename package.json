@@ -37,7 +37,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "business-model-toolkit",
+  "name": "@shivaraj-bakale/component-library",
   "author": "Shivaraj Bakale",
   "module": "dist/business-model-toolkit.esm.js",
   "size-limit": [
