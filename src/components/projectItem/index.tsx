@@ -18,7 +18,7 @@ const Container = styled(Accordian)({
   transition: '0.3s',
   '&:hover': {
     backgroundColor: colors.ternary,
-    filter: 'brightness(1.2)',
+    filter: 'brightness(1.1)',
   },
 });
 
@@ -27,7 +27,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ title, summary, tag }) => (
     <Text size="large">{title}</Text>
     <Flex type="spaceBetween">
       <Text>{summary}</Text>
-      <Button size="wide" variant="secondary">
+      <Button size="large" variant="secondary">
         View Project
       </Button>
     </Flex>
