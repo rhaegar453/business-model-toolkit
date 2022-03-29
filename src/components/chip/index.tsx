@@ -28,6 +28,7 @@ background-color: ${getBackgroundStyles};
 font-size: 12px;
 color: white;
 margin: 5px;
+cursor: default;
 `;
 
 export default Chip;
