@@ -46,6 +46,20 @@ display  : inline-block;
 animation: ${opacity} 1s linear ;
 `;
 
+const opacityAndHeight = keyframes`
+from{
+    opacity: 0;
+}  
+to{
+    opacity: 1;
+}
+`;
+
+const OpacityAndHeight = styled.div`
+    display: inline-block;
+    animation: ${opacityAndHeight} 0.5s linear;
+`;
+
 const Rotate = styled.div`
     display: inline-block;
     animation: ${rotate} 1s linear infinite;
@@ -55,6 +69,7 @@ export default {
   Rotate,
   Opacity,
   OpacityWithScale,
+  OpacityAndHeight,
   increaseHeightAnimation,
   opacityAndScale,
   opacity,

@@ -1,6 +1,6 @@
 import { HTMLAttributes, ReactNode } from 'react';
 import styled from 'styled-components';
-import colors, { getColor, theme, ThemeType } from '../../utils/theme';
+import colors, { getColor, ThemeType } from '../../utils/theme';
 
 export type ButtonTypes='primary' | 'secondary' | 'default' | 'danger'|'ternary';
 
@@ -59,7 +59,7 @@ const getFontStyles = ({ size }:ButtonProps) => {
 };
 
 const Button = styled.button`
-  border-radius: ${theme.borderRadii?.s};
+  border-radius: 5px;
   border: none;
   background-color: ${getBackgroundStyled};
   color: ${colors.text_primary};

@@ -27,7 +27,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ title, summary, tag }) => (
     <Text size="large">{title}</Text>
     <Flex type="spaceBetween">
       <Text>{summary}</Text>
-      <Button size="large" variant="secondary">
+      <Button size=" " variant="secondary">
         View Project
       </Button>
     </Flex>

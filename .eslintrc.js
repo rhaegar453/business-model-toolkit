@@ -48,5 +48,6 @@ module.exports = {
     'import/prefer-default-export': [0],
     'no-constant-condition': [0],
     'no-shadow': [0],
+    'react/jsx-no-bind': [0],
   },
 };

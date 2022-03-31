@@ -8,7 +8,7 @@ export default {
 };
 
 export const withDefault = (args:any) => (
-  <Accordian {...args}>
+  <Accordian {...args} description={"Hello World this is Shivaraj Bakale and this is the first time we're loading up this component"}>
     <Text>Hello World this is Shivaraj</Text>
   </Accordian>
 );
