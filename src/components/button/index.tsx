@@ -1,6 +1,6 @@
 import { HTMLAttributes, ReactNode } from 'react';
 import styled from 'styled-components';
-import colors from '../../utils/theme';
+import colors, { getColor, theme, ThemeType } from '../../utils/theme';
 
 export type ButtonTypes='primary' | 'secondary' | 'default' | 'danger'|'ternary';
 
@@ -8,20 +8,21 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   variant?: ButtonTypes;
   children?: ReactNode;
   size?: 'default' | 'small' | 'large' | 'full' | 'wide';
+  theme:ThemeType
 }
 
-const getBackgroundStyled = ({ variant }: ButtonProps) => {
+const getBackgroundStyled = ({ variant, theme }: ButtonProps) => {
   switch (variant) {
     case 'primary':
-      return colors.primary;
+      return getColor(theme, 'primary', colors);
     case 'secondary':
-      return colors.secondary;
+      return getColor(theme, 'secondary', colors);
     case 'danger':
-      return colors.danger;
+      return getColor(theme, 'danger', colors);
     case 'ternary':
-      return colors.ternary;
+      return getColor(theme, 'ternary', colors);
     default:
-      return colors.primary;
+      return getColor(theme, 'primary', colors);
   }
 };
 const getPadingStyles = ({ size }: ButtonProps) => {
@@ -58,7 +59,7 @@ const getFontStyles = ({ size }:ButtonProps) => {
 };
 
 const Button = styled.button`
-  border-radius: 5px;
+  border-radius: ${theme.borderRadii?.s};
   border: none;
   background-color: ${getBackgroundStyled};
   color: ${colors.text_primary};

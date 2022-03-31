@@ -8,6 +8,7 @@ export default {
 
 export const withDefault = (args:any) => (
   <ProjectItem
+    {...args}
     title="Hello Wordl Shivaraj Bakale"
     summary="Hello Wordl Shivaraj Bakale Hello Wordl Shivaraj BakaleHello Wordl Shivaraj Bakale "
     tag="Business Model Canvas"

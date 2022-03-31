@@ -52,6 +52,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.17.8",
+    "@react-theming/storybook-addon": "^1.1.5",
     "@size-limit/preset-small-lib": "^7.0.8",
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-info": "^5.3.21",

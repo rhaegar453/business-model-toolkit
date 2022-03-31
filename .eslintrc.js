@@ -46,5 +46,7 @@ module.exports = {
     'react/no-unused-prop-types': [0],
     'no-bitwise': [0],
     'import/prefer-default-export': [0],
+    'no-constant-condition': [0],
+    'no-shadow': [0],
   },
 };

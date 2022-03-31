@@ -1,6 +1,12 @@
 import './style.css'
-// https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
+import {withThemes} from '@react-theming/storybook-addon';
+/* import { theme } from '../src/utils/theme'; */
+import { addDecorator } from '@storybook/react';
+import { ThemeProvider } from 'styled-components';
+import { theme, ThemeType } from '../src/utils/theme';
+
 export const parameters = {
-  // https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args
   actions: { argTypesRegex: '^on.*' },
 };
+
+addDecorator(withThemes(ThemeProvider,[theme]))
